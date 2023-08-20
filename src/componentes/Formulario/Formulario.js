@@ -4,7 +4,7 @@ import CampoTexto from "../CampoTexto";
 import ListaOpciones from "../ListaOpciones";
 import Boton from "../Boton";
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const [nombre, actualizarNombre] = useState("");
     const [puesto, actualizarPuesto] = useState("");
@@ -29,7 +29,7 @@ const Formulario = () => {
             <CampoTexto titulo="Nombre" placeholder="Ingrese nombre" required={true} valor={nombre} actualizarValor={actualizarNombre}/>
             <CampoTexto titulo="Puesto" placeholder="Ingrese puesto" required valor={puesto} actualizarValor={actualizarPuesto}/>
             <CampoTexto titulo="Foto" placeholder="Ingrese enlace de foto" valor={foto} actualizarValor={actualizarFoto}/>
-            <ListaOpciones valor={equipo} actualizarEquipo={actualizarEquipo}/>
+            <ListaOpciones valor={equipo} actualizarEquipo={actualizarEquipo} equipos={props.equipos} />
             <Boton texto="Crear colaborador"/>
         </form>
     </section>
