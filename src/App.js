@@ -72,7 +72,7 @@ function App() {
       <MiOrg cambiarMostrar={cambiarMostrar}/>
       {
         equipos.map( (equipo) => {
-            return <Equipo datos={equipo} key={equipo.titulo} />  //Siempre que trabajamos con map hay que usar key
+            return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores} />  //Siempre que trabajamos con map hay que usar key
         })
       }
     </div>
