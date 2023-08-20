@@ -15,9 +15,9 @@ const manejarCambio = (e) => {
         <label>Equipo</label>
         <select value={props.valor} onChange={manejarCambio} >
             <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
-            {/* props.equipos.map((equipo, i) => {
+            {props.equipos.map((equipo, i) => {
                 return <option key={i} value={equipo}>{equipo}</option>
-            })*/}
+            })}
         </select>
     </div>
 }
