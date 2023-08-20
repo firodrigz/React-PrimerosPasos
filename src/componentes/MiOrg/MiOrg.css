@@ -18,3 +18,22 @@
     padding-bottom: 24px;
     border-bottom: 4px solid #6278F7;
 }
+
+@media screen and (max-width: 1400px) {
+    .orgSection img{
+        position: static;
+        display: block;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .orgSection{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .orgSection img{
+        position: initial;
+    }
+} 
