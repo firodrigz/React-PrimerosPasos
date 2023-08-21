@@ -4,11 +4,19 @@ import Header from './componentes/Header/Header';
 import Formulario from './componentes/Formulario/Formulario';
 import MiOrg from './componentes/MiOrg';
 import Equipo from './componentes/Equipo';
+import Footer from './componentes/Footer';
 
 function App() {
 
   const [mostrarFormulario, actualizarMostrar] = useState(false);
- const [colaboradores, actualizarColaboradores] = useState([]);
+ const [colaboradores, actualizarColaboradores] = useState([{
+  
+  equipo: "Front End",
+  foto: "https://github.com/firodrigz.png",
+  nombre: "Facundo Rodríguez",
+  puesto: "Estudiante"
+
+ }]);
 
   //Ternario --> condicion ? seMuestra : noSeMuestra
   //             condicion && seMuestra
@@ -75,6 +83,7 @@ function App() {
             return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter( colaborador => colaborador.equipo === equipo.titulo)} />  //Siempre que trabajamos con map hay que usar key
         })
       }
+      <Footer />
     </div>
   );
 }
