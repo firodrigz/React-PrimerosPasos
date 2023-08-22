@@ -34,6 +34,12 @@ function App() {
     actualizarColaboradores([...colaboradores, colaborador]) //es una copia
   }
 
+  //Eliminar colaborador
+
+  const eliminarColaborador = () => {
+
+  }
+
   //Listado de equipos
   const equipos = [
     {
@@ -80,7 +86,8 @@ function App() {
       <MiOrg cambiarMostrar={cambiarMostrar}/>
       {
         equipos.map( (equipo) => {
-            return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter( colaborador => colaborador.equipo === equipo.titulo)} />  //Siempre que trabajamos con map hay que usar key
+            return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter( colaborador => colaborador.equipo === equipo.titulo)}
+            eliminarColaborador={eliminarColaborador} />  //Siempre que trabajamos con map hay que usar key
         })
       }
       <Footer />
