@@ -1,13 +1,14 @@
 import "./Footer.css";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai"
 
 const Footer = () => {
     return <footer className="footer" style={{backgroundImage: "url(/img/footer.png)"}}>
         <div className="redes">
             <a href="https://github.com/firodrigz">
-                <i class="fa-brands fa-github"></i>
+                <AiFillGithub className="icon"/>
             </a>
             <a href="https://www.linkedin.com/in/rodriguez-facundo-ivan/">
-                <i class="fa-brands fa-linkedin"></i>
+                <AiFillLinkedin className="icon"/>
             </a>            
         </div>
         <img src="/img/Logo.png" alt="org" />
