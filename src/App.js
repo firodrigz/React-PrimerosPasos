@@ -9,7 +9,7 @@ import Footer from './componentes/Footer';
 
 function App() {
 
-  const [mostrarFormulario, actualizarMostrar] = useState(false);
+  const [mostrarFormulario, actualizarMostrar] = useState(true);
  const [colaboradores, actualizarColaboradores] = useState([{
   id: uuid(),
   equipo: "Front End",
@@ -102,10 +102,16 @@ function App() {
     actualizarEquipos(equiposActualizados);
   }
 
+
+  //Crear equipo
+  const crearEquipo = (nuevoEquipo) => {
+    actualizarEquipos([...equipos, { ...nuevoEquipo, id: uuid()}])
+  }
+
   return (
     <div> 
       <Header></Header>
-      {mostrarFormulario === true ? <Formulario equipos={equipos.map( (equipo) => equipo.titulo)} registrarColaborador={registrarColaborador}/> : <></>}       
+      {mostrarFormulario === true ? <Formulario equipos={equipos.map( (equipo) => equipo.titulo)} registrarColaborador={registrarColaborador} crearEquipo={crearEquipo}/> : <></>}       
       <MiOrg cambiarMostrar={cambiarMostrar}/>
       {
         equipos.map( (equipo) => {
