@@ -9,14 +9,14 @@ import Footer from './componentes/Footer';
 
 function App() {
 
-  const [mostrarFormulario, actualizarMostrar] = useState(true);
+  const [mostrarFormulario, actualizarMostrar] = useState(false);
  const [colaboradores, actualizarColaboradores] = useState([{
   id: uuid(),
   equipo: "Front End",
   foto: "https://github.com/firodrigz.png",
   nombre: "Facundo Rodríguez",
-  puesto: "Estudiante"
-
+  puesto: "Estudiante",
+  fav: true
  }]);
 
  const [equipos, actualizarEquipos] = useState([
@@ -108,6 +108,20 @@ function App() {
     actualizarEquipos([...equipos, { ...nuevoEquipo, id: uuid()}])
   }
 
+  //Like
+
+  const like = (id) => {
+    console.log("like ", id);
+    const colaboradoresActualizados = colaboradores.map((colaborador) => {
+      if (colaborador.id === id){
+        colaborador.fav = !colaborador.fav 
+      }
+      return colaborador
+    })
+
+    actualizarColaboradores(colaboradoresActualizados);
+  }
+
   return (
     <div> 
       <Header></Header>
@@ -117,7 +131,8 @@ function App() {
         equipos.map( (equipo) => {
             return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter( colaborador => colaborador.equipo === equipo.titulo)}
             eliminarColaborador={eliminarColaborador}
-            actualizarColor={actualizarColor} />  //Siempre que trabajamos con map hay que usar key
+            actualizarColor={actualizarColor}
+            like={like} />  //Siempre que trabajamos con map hay que usar key
         })
       }
       <Footer />
