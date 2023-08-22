@@ -6,14 +6,14 @@ const Equipo = (props) => {
 
     //Destructuración
 
-    const { colorPrimario, colorSecundario, titulo } = props.datos  // const colorPrimario = props.datos.colorPrimario
+    const { colorPrimario, colorSecundario, titulo, id } = props.datos  // const colorPrimario = props.datos.colorPrimario
     const { colaboradores, eliminarColaborador, actualizarColor }= props
     const obj = { backgroundColor: hexToRgba(colorPrimario, 0.6) }
     const estiloTitulo = { borderColor: colorPrimario}
     
     return <>{ colaboradores.length > 0 &&
         <section className="equipo" style={obj}>
-            <input type="color" className="input-color" value={colorPrimario} onChange={(evento) => {actualizarColor(evento.target.value, titulo)}}/>
+            <input type="color" className="input-color" value={colorPrimario} onChange={(evento) => {actualizarColor(evento.target.value, id)}}/>
         <h3 style={estiloTitulo}>{titulo}</h3>
         <div className="colaboradores">
         {
